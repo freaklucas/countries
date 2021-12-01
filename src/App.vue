@@ -1,19 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>Olá!!!</h2>
+    <Teste />
+    <div class="">
+      <ul>
+        <li v-for="reg in region" :key="reg.id">
+          {{ reg.name }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Teste from "./components/Teste";
+
+// import axios from "axios";
+
+import countries from "./services/countries";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: { Teste },
+  data() {
+    return {
+      region: [],
+    };
+  },
+  mounted() {
+    // axios
+    //   .get("https://restcountries.com/v2/regionalbloc/eu")
+    //   .then((response) => (this.info = response));
+    countries.listar().then((res) => {
+      console.log(res.data);
+      this.region = res.data;
+    });
+  },
+};
 </script>
 
 <style>
@@ -24,5 +47,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+  height: 100vh;
+}
+
+body {
+  margin: 0;
 }
 </style>
