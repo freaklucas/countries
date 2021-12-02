@@ -1,35 +1,19 @@
 <template>
   <div class="home">
     <Header />
-    <!-- <div class="">
-      <ul>
-        <li v-for="reg in region" :key="reg.id">
-          {{ reg.name }}
-        </li>
-      </ul>
-    </div> -->
+    <Filters />
   </div>
 </template>
 
 <script>
 import Header from "../template/Header.vue";
-// import countries from "./services/countries";
-
+import Filters from "../template/Filters.vue";
 export default {
+  name: "Home",
   components: {
     Header,
+    Filters,
   },
-  //   data() {
-  //     return {
-  //       region: [],
-  //     };
-  //   },
-  //   mounted() {
-  //     countries.listar().then((res) => {
-  //       console.log(res.data);
-  //       this.region = res.data;
-  //     });
-  //   },
 };
 </script>
 
