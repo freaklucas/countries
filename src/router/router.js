@@ -22,9 +22,9 @@ export default new Router({
       component: Search,
       props: true,
       children: [
-        { path: "", component: Region },
+        { path: "/region", component: Region },
         { path: ":id", component: Capital },
-        { path: ":id/lenguage", component: Lenguage },
+        { path: "/lenguage", component: Lenguage },
         { path: ":id/country", component: Country },
       ],
     },
