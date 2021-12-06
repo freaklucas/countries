@@ -1,26 +1,16 @@
 <template>
   <nav class="menu">
     <ul>
-      <!-- <h2>Filtrar por</h2> -->
-      <!-- <router-link to="/region" tag="select" active-class="active" exact>
-        <option value="">Região</option>
-        <option value="">Capital</option>
-        <option value="">Língua</option>
-        <option value="">País</option>
-        <option value="">Código de ligação</option>
-      </router-link> -->
-      <!-- <router-link to="/region">Região</router-link> -->
       <h2>Teste</h2>
       <select v-model="selected">
-        <option disabled value="">Please select one</option>
-        <option>Região</option>
-        <option>Capital</option>
-        <option>Língua</option>
-        <option>País</option>
-        <option>Code</option>
+        <option disabled value="">Selecione uma opção</option>
+        <option v-for="reg in region" :key="reg">
+          {{ reg.name }}
+        </option>
       </select>
       <button class="but" @click="selectState(selected)">Pesquisar:</button>
       <select name="" id="">
+        <!-- v-model="sectedImage" -->
         <option>
           {{ stateSelected }}
         </option>
@@ -30,6 +20,12 @@
         <option>Brasil</option>
         <option>PT-BR</option>
       </select>
+      <button class="but" @click="selectStateImage(sectedImage)">
+        Pesquisar:
+      </button>
+      {{
+        selectStateImg
+      }}
       <hr />
 
       <!-- <h2>Usando router-link:</h2>
@@ -39,6 +35,8 @@
 </template>
 
 <script>
+import countries from "../../services/countries";
+
 export default {
   data() {
     return {
@@ -46,12 +44,25 @@ export default {
       id: 1,
       selected: "",
       stateSelected: "",
+      sectedImage: "",
+      selectStateImg: "",
+      region: [""],
     };
+  },
+  mounted() {
+    countries.listar().then((res) => {
+      console.log(res.data);
+      this.region = res.data;
+    });
   },
   methods: {
     selectState(selected) {
       this.stateSelected = selected;
     },
+    selectStateImage(sectedImage) {
+      this.selectStateImg = sectedImage;
+    },
+    getRegion() {},
   },
 };
 </script>
