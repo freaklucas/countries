@@ -9,15 +9,20 @@
         </option>
       </select>
     </ul> -->
-    <h3>Component Region</h3>
+    <h3>Selecione a região</h3>
+    <Menu />
   </nav>
 </template>
 
 <script>
 import countries from "../../services/countries";
+import Menu from "../template/Menu.vue";
 
 export default {
   name: "Filters",
+  components: {
+    Menu,
+  },
   props: {
     name: {
       type: String,

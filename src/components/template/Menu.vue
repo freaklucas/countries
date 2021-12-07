@@ -1,9 +1,8 @@
 <template>
   <nav class="menu">
     <ul>
-      <h2>Teste</h2>
       <select v-model="selected">
-        <option disabled value="">Selecione uma opção</option>
+        <option disabled value="">Filtrar por</option>
         <option value="region">Região</option>
         <option value="capital">Capital</option>
         <option value="lenguage">Lingua</option>
@@ -11,6 +10,11 @@
         <option value="code">Código</option>
       </select>
       <button class="but" @click="toRegion">Pesquisar:</button>
+      <div class="images">
+        <img src="@/assets/images/bandeirabr.png" alt="bandeira do brasil" />
+        <img src="@/assets/images/bandeiraAl.png" alt="bandeira da alemanha" />
+        <img src="@/assets/images/bandeiraJp.png" alt="bandeira do japão" />
+      </div>
       <!-- <h2>Usando router-link:</h2>
       <router-link to="/region" tag="button">Pesquisar</router-link> -->
     </ul>
@@ -59,5 +63,12 @@ export default {
   background-color: cadetblue;
   font-family: bold;
   text-align: center;
+}
+
+.images {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+  margin-top: 50px;
 }
 </style>
