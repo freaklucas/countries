@@ -1,6 +1,6 @@
 <template>
   <nav class="region">
-    <ul>
+    <!-- <ul>
       <h2>Região</h2>
       <select>
         <option value="" disabled selected>Escolha uma opção</option>
@@ -8,7 +8,8 @@
           {{ reg.name }}
         </option>
       </select>
-    </ul>
+    </ul> -->
+    <h3>Component Region</h3>
   </nav>
 </template>
 
