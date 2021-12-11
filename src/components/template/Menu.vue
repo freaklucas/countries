@@ -1,8 +1,9 @@
 <template>
   <nav class="menu">
     <ul>
-      <select v-model="selected">
-        <option disabled value="">Filtrar por</option>
+      <h2 class="selects">Escolher por</h2>
+      <select v-model="selected" class="selec">
+        <option disabled value="">Escolha uma opção</option>
         <option value="region">Região</option>
         <option value="capital">Capital</option>
         <option value="lenguage">Lingua</option>
@@ -22,7 +23,7 @@
 </template>
 
 <script>
-import countries from "../../services/countries";
+// import countries from "../../services/countries";
 
 export default {
   data() {
@@ -37,15 +38,12 @@ export default {
       Region: [],
     };
   },
-  created() {
-    this.getRegion();
-  },
-  mounted() {
-    countries.listar().then((res) => {
-      console.log(res.data);
-      this.region = res.data;
-    });
-  },
+  // mounted() {
+  //   countries.listar().then((res) => {
+  //     console.log(res.data);
+  //     this.region = res.data;
+  //   });
+  // },
   methods: {
     // selectState(selected) {
     //   this.stateSelected = selected;
@@ -70,5 +68,15 @@ export default {
   width: 100vw;
   justify-content: space-around;
   margin-top: 50px;
+}
+
+.selects {
+  font: semibold;
+  color: blueviolet;
+  margin-top: 18px;
+  margin-bottom: 12px;
+}
+nav {
+  margin-left: 2px;
 }
 </style>
