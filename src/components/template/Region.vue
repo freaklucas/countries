@@ -22,6 +22,15 @@
         {{ image.svg }}
       </div>
     </div>
+    <div class="img">
+      <h3>Teste de image2</h3>
+      <div class="imagens" v-for="image in images" :key="image.id">
+        {{ image.data.flag }}
+      </div>
+      <div class="segundo" v-for="element in elements" :key="element.name">
+        {{ element.name }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,6 +50,8 @@ export default {
       region: [""],
       selected: "",
       images: [],
+      svg: [],
+      elements: [],
     };
   },
   // mounted() {
@@ -55,6 +66,7 @@ export default {
       .get(`https://restcountries.com/v2/regionalbloc/eu/`)
       .then((res) => {
         this.region = res.data;
+        console.log(this.region);
       })
       .catch((e) => {
         this.errors.push(e);

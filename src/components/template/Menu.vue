@@ -38,16 +38,7 @@ export default {
       Region: [],
     };
   },
-  // mounted() {
-  //   countries.listar().then((res) => {
-  //     console.log(res.data);
-  //     this.region = res.data;
-  //   });
-  // },
   methods: {
-    // selectState(selected) {
-    //   this.stateSelected = selected;
-    // },s
     toRegion() {
       this.$router.push({ name: this.selected });
     },
