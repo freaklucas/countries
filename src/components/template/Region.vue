@@ -5,8 +5,8 @@
       <ul>
         <select v-model="selected">
           <h3>Escolha região</h3>
-          <option value="" disabled selected>Escolha uma opção</option>
-          <option value="" v-for="reg in region" :key="reg.id">
+          <option value="" disabled>Escolha uma opção</option>
+          <option v-for="reg in region" :key="reg.id">
             {{ reg.name }}
           </option>
         </select>
@@ -21,16 +21,10 @@
         {{ image.svg }}
       </div>
     </div>
-    <div class="img">
-      <h3 class="text-center">Teste de image2</h3>
-      <div class="imagens" v-for="image in images" :key="image.id">
-        {{ image.data.flag }}
-      </div>
-      <div class="segundo" v-for="element in elements" :key="element.name">
-        {{ element.name }}
-      </div>
-    </div>
     <span>Categoria selecionada:</span>
+    <h3>
+      {{ selected }}
+    </h3>
   </div>
 </template>
 
@@ -62,8 +56,6 @@ export default {
       .catch((e) => {
         this.errors.push(e);
       });
-
-    console.log(this.selected);
   },
   methods: {
     toSearch() {
