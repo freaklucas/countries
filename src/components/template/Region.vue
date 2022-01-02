@@ -17,13 +17,12 @@
       <img src="@/assets/images/bandeirabr.png" alt="bandeira do brasil" />
       <img src="@/assets/images/bandeiraAl.png" alt="bandeira da alemanha" />
       <img src="@/assets/images/bandeiraJp.png" alt="bandeira do japão" />
-      <h3>Teste de image</h3>
       <div class="imagens" v-for="image in images" :key="image.id">
         {{ image.svg }}
       </div>
     </div>
     <div class="img">
-      <h3>Teste de image2</h3>
+      <h3 class="text-center">Teste de image2</h3>
       <div class="imagens" v-for="image in images" :key="image.id">
         {{ image.data.flag }}
       </div>
@@ -31,14 +30,13 @@
         {{ element.name }}
       </div>
     </div>
+    <span>Categoria selecionada:</span>
   </div>
 </template>
 
 <script>
-// import countries from "../../services/countries";
 import Header from "../template/Header.vue";
 import axios from "axios";
-// import Menu from "../template/Menu.vue";
 
 export default {
   name: "Filters",
@@ -54,13 +52,6 @@ export default {
       elements: [],
     };
   },
-  // mounted() {
-  //   countries.listar().then((res) => {
-  //     console.log(res.data);
-  //     this.region = res.data;
-  //   });
-  // },
-
   created() {
     axios
       .get(`https://restcountries.com/v2/regionalbloc/eu/`)
@@ -86,5 +77,8 @@ export default {
 select {
   margin-top: 20px;
   margin-left: 12px;
+}
+.text-center {
+  margin-left: 24px;
 }
 </style>
