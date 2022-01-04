@@ -9,8 +9,19 @@
           <!-- <option v-for="reg in region" :key="reg.id">
             {{ reg.name }}
           </option> -->
-          <option value="eu" name="eu">EU</option>
-          <option value="efta" name="efta">EFTA</option>
+          <option>EU</option>
+          <option>EFTA</option>
+          <option>CARICOM</option>
+          <option>PA</option>
+          <option>AU</option>
+          <option>USAN</option>
+          <option>EEU</option>
+          <option>AL</option>
+          <option>ASEAN</option>
+          <option>CAIS</option>
+          <option>CEFTA</option>
+          <option>NAFTA</option>
+          <option>SAARC</option>
         </select>
         <button class="but" @click="toSearch">Pesquisar:</button>
       </ul>
