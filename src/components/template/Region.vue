@@ -14,16 +14,13 @@
       </ul>
     </div>
     <div class="images">
-      <img src="@/assets/images/bandeirabr.png" alt="bandeira do brasil" />
-      <img src="@/assets/images/bandeiraAl.png" alt="bandeira da alemanha" />
-      <img src="@/assets/images/bandeiraJp.png" alt="bandeira do japão" />
       <div class="imagens" v-for="image in images" :key="image.id">
         {{ image.svg }}
       </div>
     </div>
     <span>Categoria selecionada:</span>
     <h3>
-      {{ selected }}
+      {{ selected.flag }}
     </h3>
   </div>
 </template>
