@@ -6,9 +6,11 @@
         <select v-model="selected">
           <h3>Escolha região</h3>
           <option value="" disabled>Escolha uma opção</option>
-          <option v-for="reg in region" :key="reg.id">
+          <!-- <option v-for="reg in region" :key="reg.id">
             {{ reg.name }}
-          </option>
+          </option> -->
+          <option value="eu" name="eu">EU</option>
+          <option value="efta" name="efta">EFTA</option>
         </select>
         <button class="but" @click="toSearch">Pesquisar:</button>
       </ul>
@@ -43,20 +45,19 @@ export default {
       elements: [],
     };
   },
-  created() {
-    axios
-      .get(`https://restcountries.com/v2/regionalbloc/eu/`)
-      .then((res) => {
-        this.region = res.data;
-        console.log(this.region);
-      })
-      .catch((e) => {
-        this.errors.push(e);
-      });
-  },
+  created() {},
   methods: {
     toSearch() {
-      this.$router.push({ name: this.selected });
+      axios
+        .get(`https://restcountries.com/v2/regionalbloc/${this.selected}`)
+        .then((res) => {
+          this.region = res.data;
+          console.log(this.region);
+        })
+        .catch((e) => {
+          // this.errors.push(e);
+          console.log(e);
+        });
     },
   },
 };
