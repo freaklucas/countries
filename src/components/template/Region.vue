@@ -6,26 +6,17 @@
         <select v-model="selected">
           <h3>Escolha região</h3>
           <option value="" disabled>Escolha uma opção</option>
-          <option>EU</option>
-          <option>EFTA</option>
-          <option>CARICOM</option>
-          <option>PA</option>
-          <option>AU</option>
-          <option>USAN</option>
-          <option>EEU</option>
-          <option>AL</option>
-          <option>ASEAN</option>
-          <option>CAIS</option>
-          <option>CEFTA</option>
-          <option>NAFTA</option>
-          <option>SAARC</option>
+          <option>Africa</option>
+          <option>Asia</option>
+          <option>Europe</option>
+          <option>Oceania</option>
         </select>
         <button class="but" @click="toSearch">Pesquisar:</button>
         <div class="images">
           <span>Categoria selecionada:</span>
-          <div class="imagens" v-for="image in images" :key="image.flag">
-            <img :src="image.data[0].flag" alt="" />
-            {{ image.data[0].flag }}
+          <div class="imagens" v-for="image in images" :key="image.id">
+            <img :src="`${image.flag}`" alt="" />
+            {{ image.data[0].flag }} | {{ image.data }}
           </div>
         </div>
       </ul>
@@ -44,24 +35,28 @@ export default {
   },
   data() {
     return {
-      region: [""],
+      region: {},
       selected: "",
-      images: [],
-      svg: [],
-      elements: [],
+      images: {},
+      svg: {},
+      elements: {},
     };
   },
-  created() {},
   methods: {
     toSearch() {
+      const headers = { "Content-Type": "application/json" };
       axios
-        .get(`https://restcountries.com/v2/regionalbloc/${this.selected}`)
+        .get(`https://restcountries.com/v2/regionalbloc/${this.selected}`, {
+          headers,
+        })
         .then((res) => {
-          this.region = res.data[0].flag;
+          this.region = res.data;
+          this.images = res.data.json;
+          // this.region = res.data;
           console.log(this.region);
+          console.log(this.images);
         })
         .catch((e) => {
-          // this.errors.push(e);
           console.log(e);
         });
     },
