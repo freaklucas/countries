@@ -6,9 +6,6 @@
         <select v-model="selected">
           <h3>Escolha região</h3>
           <option value="" disabled>Escolha uma opção</option>
-          <!-- <option v-for="reg in region" :key="reg.id">
-            {{ reg.name }}
-          </option> -->
           <option>EU</option>
           <option>EFTA</option>
           <option>CARICOM</option>
@@ -24,17 +21,15 @@
           <option>SAARC</option>
         </select>
         <button class="but" @click="toSearch">Pesquisar:</button>
+        <div class="images">
+          <span>Categoria selecionada:</span>
+          <div class="imagens" v-for="image in images" :key="image.flag">
+            <img :src="image.data[0].flag" alt="" />
+            {{ image.data[0].flag }}
+          </div>
+        </div>
       </ul>
     </div>
-    <div class="images">
-      <div class="imagens" v-for="image in images" :key="image.id">
-        {{ image.svg }}
-      </div>
-    </div>
-    <span>Categoria selecionada:</span>
-    <h3>
-      {{ selected.flag }}
-    </h3>
   </div>
 </template>
 
@@ -62,7 +57,7 @@ export default {
       axios
         .get(`https://restcountries.com/v2/regionalbloc/${this.selected}`)
         .then((res) => {
-          this.region = res.data;
+          this.region = res.data[0].flag;
           console.log(this.region);
         })
         .catch((e) => {
