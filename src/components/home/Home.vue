@@ -1,17 +1,16 @@
 <template>
   <div class="home">
-    <Header />
-    <!-- <router-view></router-view> -->
+    <Seach />
   </div>
 </template>
 
 <script>
-import Header from "../template/Header.vue";
+import Seach from "../template/Search.vue";
 
 export default {
   name: "Home",
   components: {
-    Header,
+    Seach,
   },
 };
 </script>
