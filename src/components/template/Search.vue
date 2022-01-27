@@ -4,14 +4,16 @@
     <div class="main">
       <ul>
         <h2 class="selects">Escolher por</h2>
-        <select class="selec">
-          <option disabled value="">Escolha uma opção</option>
-          <option value="region">Região</option>
-          <option value="capital">Capital</option>
-          <option value="lenguage">Lingua</option>
-          <option value="country">País</option>
-          <option value="code">Código</option>
-        </select>
+        <div class="select-style">
+          <select class="selec">
+            <option disabled value="">Escolha uma opção</option>
+            <option value="region">Região</option>
+            <option value="capital">Capital</option>
+            <option value="lenguage">Lingua</option>
+            <option value="country">País</option>
+            <option value="code">Código</option>
+          </select>
+        </div>
         <button class="button-7">Pesquisar:</button>
         <div class="images">
           <img src="@/assets/images/bandeirabr.png" alt="bandeira do brasil" />
@@ -117,5 +119,49 @@ export default {};
 .button-7:active {
   background-color: #0064bd;
   box-shadow: none;
+}
+
+.select-style {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  width: 120px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  background: #fff;
+  position: relative;
+}
+
+.select-style select {
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.select-style:after {
+  top: 50%;
+  left: 85%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: #000000;
+  border-width: 5px;
+  margin-top: -2px;
+  z-index: 100;
+}
+
+.select-style select:focus {
+  outline: none;
 }
 </style>
