@@ -41,6 +41,7 @@ export default {};
 
 .title {
   margin-top: 10px;
+  margin-bottom: 20px;
   font-size: 52px;
   animation: flipTitle 3s;
 }
@@ -71,5 +72,9 @@ export default {};
 
 .main button {
   margin: 12px;
+}
+
+.selects {
+  margin-bottom: 12px;
 }
 </style>
