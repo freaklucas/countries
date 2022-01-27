@@ -12,7 +12,7 @@
           <option value="country">País</option>
           <option value="code">Código</option>
         </select>
-        <button class="button-36">Pesquisar:</button>
+        <button class="button-7">Pesquisar:</button>
         <div class="images">
           <img src="@/assets/images/bandeirabr.png" alt="bandeira do brasil" />
           <img
@@ -78,42 +78,44 @@ export default {};
   margin-bottom: 12px;
 }
 
-.button-36 {
-  background-image: linear-gradient(
-    92.88deg,
-    #455eb5 9.16%,
-    #5643cc 43.89%,
-    #673fd7 64.72%
-  );
-  border-radius: 8px;
-  border-style: none;
+.button-7 {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
-  flex-shrink: 0;
-  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
     sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  height: 2.6rem;
-  padding: 0 1.6rem;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
   text-align: center;
-  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-  transition: all 0.5s;
+  text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
 }
 
-.button-36:hover {
-  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-  transition-duration: 0.1s;
+.button-7:hover,
+.button-7:focus {
+  background-color: #07c;
 }
 
-@media (min-width: 768px) {
-  .button-36 {
-    padding: 0 2rem;
-  }
+.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
 }
 </style>
