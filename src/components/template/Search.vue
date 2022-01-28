@@ -4,7 +4,7 @@
     <div class="main">
       <ul>
         <h2 class="selects">Escolher por</h2>
-        <select class="selec">
+        <select v-model="selected" class="selec">
           <option disabled value="">Escolha uma opção</option>
           <option value="region">Região</option>
           <option value="capital">Capital</option>
@@ -12,7 +12,7 @@
           <option value="country">País</option>
           <option value="code">Código</option>
         </select>
-        <button class="button-7">Pesquisar:</button>
+        <button class="button-7" @click="search">Pesquisar:</button>
         <div class="images">
           <img src="@/assets/images/bandeirabr.png" alt="bandeira do brasil" />
           <img
@@ -20,6 +20,11 @@
             alt="bandeira da alemanha"
           />
           <img src="@/assets/images/bandeiraJp.png" alt="bandeira do japão" />
+        </div>
+        <div class="content-select" v-for="image in images" :key="image.id">
+          <h3>Conteúdo selecionado:</h3>
+          <img :src="`$image.flag`" alt="" />
+          {{ image.data }} || {{ image.data }}
         </div>
       </ul>
     </div>
@@ -33,14 +38,16 @@ export default {
   data() {
     return {
       region: {},
-      selected: "",
+      selected: {},
+      images: {},
     };
   },
   methods: {
     search() {
       const headers = { "Content-Type": "application/json" };
       axios
-        .get(`https://restcountries.com/v2/all/regionalbloc/${this.selected}`, {
+        .get(`https://restcountries.com/v2/all/`, {
+          //regionalbloc/${this.selected}
           headers,
         })
         .then((res) => {
