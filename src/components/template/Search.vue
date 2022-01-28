@@ -27,7 +27,35 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      region: {},
+      selected: "",
+    };
+  },
+  methods: {
+    search() {
+      const headers = { "Content-Type": "application/json" };
+      axios
+        .get(`https://restcountries.com/v2/all/regionalbloc/${this.selected}`, {
+          headers,
+        })
+        .then((res) => {
+          this.region = res.data;
+          this.images = res.data.json;
+          // this.region = res.data;
+          console.log(this.region);
+          console.log(this.images);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  },
+};
 </script>
 
 <style>
