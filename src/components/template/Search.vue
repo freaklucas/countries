@@ -23,7 +23,7 @@
         </div>
         <div class="content-select" v-for="image in images" :key="image.id">
           <h3>Conteúdo selecionado:</h3>
-          <img :src="`$image[0].name`" alt="" />
+          <img :src="`$image.flag`" alt="" />
           {{ image.data }} || {{ image.flags.png }}
         </div>
       </ul>
