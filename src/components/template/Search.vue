@@ -6,7 +6,7 @@
         <h2 class="selects">Escolher por</h2>
         <select v-model="selected" class="selec">
           <option disabled value="">Escolha uma opção</option>
-          <option value="region">Região</option>
+          <option value="eu">EU</option>
           <option value="capital">Capital</option>
           <option value="lenguage">Lingua</option>
           <option value="country">País</option>
@@ -23,8 +23,8 @@
         </div>
         <div class="content-select" v-for="image in images" :key="image.id">
           <h3>Conteúdo selecionado:</h3>
-          <img :src="`$image.flag`" alt="" />
-          {{ image.data }} || {{ image.data }}
+          <img :src="`$image[0].name`" alt="" />
+          {{ image.data }} || {{ image.flags.png }}
         </div>
       </ul>
     </div>
@@ -46,7 +46,7 @@ export default {
     search() {
       const headers = { "Content-Type": "application/json" };
       axios
-        .get(`https://restcountries.com/v2/all/`, {
+        .get(`https://restcountries.com/v2/regionalbloc/${this.selected}`, {
           //regionalbloc/${this.selected}
           headers,
         })
@@ -55,7 +55,8 @@ export default {
           this.images = res.data.json;
           // this.region = res.data;
           console.log(this.region);
-          console.log(this.images);
+
+          console.log(`selecionei : ${this.selected}`);
         })
         .catch((e) => {
           console.log(e);
