@@ -21,10 +21,12 @@
           />
           <img src="@/assets/images/bandeiraJp.png" alt="bandeira do japão" />
         </div>
+        {{
+          info
+        }}
         <div class="content-select" v-for="image in images" :key="image.id">
           <h3>Conteúdo selecionado:</h3>
-          <img :src="`$image.flag`" alt="" />
-          {{ image.data }} || {{ image.flags.png }}
+          <td>{{ info }}</td>
         </div>
       </ul>
     </div>
@@ -40,13 +42,14 @@ export default {
       region: {},
       selected: {},
       images: {},
+      info: null,
     };
   },
   methods: {
     search() {
       const headers = { "Content-Type": "application/json" };
       axios
-        .get(`https://restcountries.com/v2/regionalbloc/${this.selected}`, {
+        .get(`https://restcountries.com/v2/all/`, {
           //regionalbloc/${this.selected}
           headers,
         })
@@ -54,9 +57,14 @@ export default {
           this.region = res.data;
           this.images = res.data.json;
           // this.region = res.data;
+
+          this.info = res.data;
+
           console.log(this.region);
 
           console.log(`selecionei : ${this.selected}`);
+
+          console.log(res.data);
         })
         .catch((e) => {
           console.log(e);
