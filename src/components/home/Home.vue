@@ -47,6 +47,7 @@ export default {
       region: {},
       selected: {},
       images: {},
+
       info: null,
     };
   },
@@ -57,7 +58,7 @@ export default {
         Content: "application/json",
       };
       axios
-        .get(`https://restcountries.com/v2/all/`, {
+        .get(`https://restcountries.com/v3.1/name/peru`, {
           //regionalbloc/${this.selected}
           headers,
         })
