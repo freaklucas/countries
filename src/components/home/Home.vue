@@ -28,6 +28,9 @@
           <div class="container">
             {{ info }}
           </div>
+          <div class="container">
+            <CountrySelected url="https://restcountries.com/v3.1/name/peru" />
+          </div>
         </ul>
       </div>
     </div>
@@ -37,13 +40,16 @@
 <script>
 import axios from "axios";
 
+import CountrySelected from "../template/CountrySelected.vue";
+
 export default {
+  components: { CountrySelected },
   data() {
     return {
       region: {},
       selected: {},
       images: {},
-
+      option: true,
       info: null,
     };
   },
