@@ -28,10 +28,6 @@
           <div class="container">
             {{ info }}
           </div>
-          <div class="content-select" v-for="image in images" :key="image.id">
-            <h3>Conteúdo selecionado:</h3>
-            <td>{{ info }}</td>
-          </div>
         </ul>
       </div>
     </div>
@@ -64,8 +60,6 @@ export default {
         })
         .then((res) => {
           this.info = res.data;
-
-          console.log(this.region);
 
           console.log(`selecionei : ${this.selected}`);
 
